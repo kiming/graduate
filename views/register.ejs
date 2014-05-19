@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/css/bootstrap.min.css' />
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-transition.js"></script>
+    <script type="text/javascript" src="/js/register.js"></script>
+  </head>
+  <body>
+    <div id="modal" class="modal hide fade">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal" >&times;</a>
+        <h3>提示</h3>
+      </div>
+      <div class="modal-body">
+        <p id="modal_msg"></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal" >关闭</a>
+      </div>
+    </div>
+    <div class="form-horizontal">
+      <fieldset>
+        <legend>请输入注册信息</legend>
+        <div class="control-group">
+          <label class="control-label" for="mailbox">邮箱:</label>
+          <div class="controls">
+            <input type="text" class="input" id="mailbox" name="m">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="nick">昵称:</label>
+          <div class="controls">
+            <input type="text" class="input" id="nick" name="n">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="pw">输入密码:</label>
+          <div class="controls">
+            <input type="password" class="input" id="pw" name="p">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="pwr">确认密码:</label>
+          <div class="controls">
+            <input type="password" class="input" id="pwr">
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary btn-large" onclick='handin()'>立即注册</button>
+        </div>
+      </fieldset>
+    </div>
+  </body>
+</html>

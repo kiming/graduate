@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/css/bootstrap.min.css' />
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/checkquestion.js"></script>
+  </head>
+
+  <body>
+    <div id="modal" class="modal hide fade">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal" >&times;</a>
+        <h3>提示</h3>
+      </div>
+      <div class="modal-body">
+        <p id="modal_msg"></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal" >关闭</a>
+      </div>
+    </div>
+    <div id="edit" class="modal hide fade">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal" >&times;</a>
+        <h3>分配话题</h3>
+      </div>
+      <div class="modal-body">
+        <div class="form-horizontal">
+          <div class="control-group">
+            <label class="control-label" for="cates1">分类选择</label>
+            <div class="controls">
+              <select id="cates1" name="c">
+                <option value='0'>请选择</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="topic">话题选择</label>
+            <div class="controls">
+              <select id="topic" name="t">
+                <option value='0'>请选择</option>
+              </select>
+              <input type="text" class="input" id="topics" name="ts">
+              <button class='btn' id='inputmode'>列表选择</button>
+              <input type='hidden' id='mode' value='1'/>
+              <input type='hidden' id='refresh' value='0'/>
+              <input type='hidden' id='qid'/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick='confirm_allocate()'>保存更新</button>
+        <a href="#" class="btn" data-dismiss="modal" >关闭</a>
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>问题描述</th>
+          <th>分类话题</th>
+          <th>正确答案</th>
+          <th>错误答案1</th>
+          <th>错误答案2</th>
+          <th>错误答案3</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <%
+      for (var i in array) {
+      	var entry = array[i];
+      %>
+      	<tr>
+          <td><%=entry.tt %></td>
+          <td><%=entry.cs + '>' + entry.ts %><% if(entry.m==1) {%>[新]<% } %></td>
+          <td><%=entry.ac %></td>
+          <td><%=entry.a1 %></td>
+          <td><%=entry.a2 %></td>
+          <td><%=entry.a3 %></td>
+          <td>
+            <div class="btn-group">
+              <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-cog icon-white"></i> 操作 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <% if (entry.m==0) { %>
+                <li><a onclick="approve(<%=entry.id %>)"><i class="icon-ok"></i> 通过</a></li>
+                <% } else { %>
+                <li><a onclick="approve(<%=entry.id %>)"><i class="icon-pencil"></i> 分配话题并通过</a></li>
+                <% } %>
+                <li><a onclick="reject(<%=entry.id%>)"><i class="icon-ban-circle"></i> 退回</a></li>
+              </ul>
+            </div>
+      	  </td>
+      	</tr>
+      <%
+      }
+      %>
+      <!--
+      	<tr>
+      	  <td>广安市是哪个省的城市？</td>
+      	  <td>四川</td>
+      	  <td>江西</td>
+      	  <td>安徽</td>
+      	  <td>福建</td>
+      	  <td>
+      	  	<button class="btn btn-primary btn-small" href="#">通过</button>
+      	  	<button class="btn btn-small" href="#">退回</button>
+      	  </td>
+      	</tr>
+      	<tr>
+      	  <td>《离开地球表面》是哪个乐队的歌曲？</td>
+      	  <td>五月天</td>
+      	  <td>BEYOND</td>
+      	  <td>信乐团</td>
+      	  <td>飞儿乐团</td>
+      	  <td>
+      	  	<button class="btn btn-primary btn-small" href="#">通过</button>
+      	  	<button class="btn btn-small" href="#">退回</button>
+      	  </td>
+      	</tr>
+      	<tr>
+      	  <td>若某行业中许多生产者生产一种标准化产品，我们可以估计到其中任何一个生产者的需求将是</td>
+      	  <td>缺乏弹性</td>
+      	  <td>毫无弹性</td>
+      	  <td>富有弹性</td>
+      	  <td>有单元弹性</td>
+      	  <td>
+      	  	<button class="btn btn-primary btn-small" href="#">通过</button>
+      	  	<button class="btn btn-small" href="#">退回</button>
+      	  </td>
+      	</tr>-->
+      </tbody>
+    </table>
+  </body>
+</html>

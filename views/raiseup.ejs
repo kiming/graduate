@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/css/bootstrap.min.css' />
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-transition.js"></script>
+    <script type="text/javascript" src="/js/raiseup.js"></script>
+  </head>
+  <body>
+    <div id="modal" class="modal hide fade">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal" >&times;</a>
+        <h3>提示</h3>
+      </div>
+      <div class="modal-body">
+        <p id="modal_msg"></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal" >关闭</a>
+      </div>
+    </div>
+    <div class="form-horizontal">
+      <fieldset>
+        <legend>请输入问题</legend>
+        <div class="control-group">
+          <label class="control-label" for="ques">问题</label>
+          <div class="controls">
+            <input type="text" class="input" id="ques" name="q">
+            <p class="help-block">不要超过140字</p>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="tans">正确答案</label>
+          <div class="controls">
+            <input type="text" class="input" id="tans" name="a1">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="fansa">错误答案A</label>
+          <div class="controls">
+            <input type="text" class="input" id="fansa" name="a2">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="fansb">错误答案B</label>
+          <div class="controls">
+            <input type="text" class="input" id="fansb" name="a3">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="fansc">错误答案C</label>
+          <div class="controls">
+            <input type="text" class="input" id="fansc" name="a4">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="cates1">分类选择</label>
+          <div class="controls">
+            <select id="cates1" name="c">
+              <option value='0'>请选择</option>
+            </select>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="topic">话题选择</label>
+          <div class="controls">
+            <select id="topic" name="t">
+              <option value='0'>请选择</option>
+            </select>
+            <input type="text" class="input" id="topics" name="ts">
+            <button class='btn' id='inputmode'>手动输入</button>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary" onclick='handinques()'>提交</button>
+          <button class="btn" onclick='initform()'>取消</button>
+        </div>
+        <input type='hidden' id='mode' value='0'/>
+      </fieldset>
+    </div>
+  </body>
+</html>
